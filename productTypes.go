@@ -26,7 +26,7 @@ const (
 	unknownStr          = "unknown"
 )
 
-func String(pt ProductType) string {
+func (pt ProductType) String() string {
 	switch pt {
 	case Store:
 		return storeStr
