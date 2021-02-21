@@ -9,6 +9,6 @@ func DetailProductType(pt ProductType) ProductType {
 	case Wishlist:
 		return WishlistProducts
 	default:
-		return Unknown
+		return UnknownProductType
 	}
 }
