@@ -3,7 +3,7 @@ package vangogh_types
 type ProductType int
 
 const (
-	Unknown ProductType = iota
+	UnknownProductType ProductType = iota
 	Store
 	StoreProducts
 	Account
@@ -15,15 +15,15 @@ const (
 )
 
 const (
-	storeStr            = "store"
-	storeProductsStr    = "store-products"
-	accountStr          = "account"
-	accountProductsStr  = "account-products"
-	wishlistStr         = "wishlist"
-	wishlistProductsStr = "wishlist-products"
-	detailsStr          = "details"
-	apiProductsStr      = "api-products"
-	unknownStr          = "unknown"
+	unknownProductTypeStr = "unknown-product-type"
+	storeStr              = "store"
+	storeProductsStr      = "store-products"
+	accountStr            = "account"
+	accountProductsStr    = "account-products"
+	wishlistStr           = "wishlist"
+	wishlistProductsStr   = "wishlist-products"
+	detailsStr            = "details"
+	apiProductsStr        = "api-products"
 )
 
 func (pt ProductType) String() string {
@@ -45,11 +45,11 @@ func (pt ProductType) String() string {
 	case ApiProducts:
 		return apiProductsStr
 	default:
-		return unknownStr
+		return unknownProductTypeStr
 	}
 }
 
-func Parse(productType string) ProductType {
+func ParseProductType(productType string) ProductType {
 	switch productType {
 	case storeStr:
 		return Store
@@ -68,6 +68,6 @@ func Parse(productType string) ProductType {
 	case apiProductsStr:
 		return ApiProducts
 	default:
-		return Unknown
+		return UnknownProductType
 	}
 }
