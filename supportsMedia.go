@@ -19,8 +19,10 @@ func SupportsMedia(pt ProductType, mt gog_types.Media) bool {
 	case AccountProducts:
 		fallthrough
 	case WishlistProducts:
+		fallthrough
+	case ApiProductsV1:
 		return true
-	case ApiProducts:
+	case ApiProductsV2:
 		return mt == gog_types.Game
 	default:
 		return false

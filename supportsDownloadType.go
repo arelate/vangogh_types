@@ -9,7 +9,9 @@ func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
 	case ProductImage:
 		return pt == StoreProducts ||
 			pt == AccountProducts ||
-			pt == WishlistProducts
+			pt == WishlistProducts ||
+			pt == ApiProductsV1 ||
+			pt == ApiProductsV2
 	default:
 		return false
 	}

@@ -11,7 +11,8 @@ const (
 	Wishlist
 	WishlistProducts
 	Details
-	ApiProducts
+	ApiProductsV1
+	ApiProductsV2
 )
 
 const (
@@ -23,7 +24,8 @@ const (
 	wishlistStr           = "wishlist"
 	wishlistProductsStr   = "wishlist-products"
 	detailsStr            = "details"
-	apiProductsStr        = "api-products"
+	apiProductsV1Str      = "api-products-v1"
+	apiProductsV2Str      = "api-products-v2"
 )
 
 func (pt ProductType) String() string {
@@ -42,8 +44,10 @@ func (pt ProductType) String() string {
 		return wishlistProductsStr
 	case Details:
 		return detailsStr
-	case ApiProducts:
-		return apiProductsStr
+	case ApiProductsV1:
+		return apiProductsV1Str
+	case ApiProductsV2:
+		return apiProductsV2Str
 	default:
 		return unknownProductTypeStr
 	}
@@ -65,8 +69,10 @@ func ParseProductType(productType string) ProductType {
 		return WishlistProducts
 	case detailsStr:
 		return Details
-	case apiProductsStr:
-		return ApiProducts
+	case apiProductsV1Str:
+		return ApiProductsV1
+	case apiProductsV2Str:
+		return ApiProductsV2
 	default:
 		return UnknownProductType
 	}
