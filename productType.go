@@ -77,3 +77,28 @@ func ParseProductType(productType string) ProductType {
 		return UnknownProductType
 	}
 }
+
+func ValidProductType(pt ProductType) bool {
+	switch pt {
+	case Store:
+		fallthrough
+	case StoreProducts:
+		fallthrough
+	case Account:
+		fallthrough
+	case AccountProducts:
+		fallthrough
+	case Wishlist:
+		fallthrough
+	case WishlistProducts:
+		fallthrough
+	case Details:
+		fallthrough
+	case ApiProductsV1:
+		fallthrough
+	case ApiProductsV2:
+		return true
+	default:
+		return false
+	}
+}

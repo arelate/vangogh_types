@@ -53,3 +53,20 @@ func ParseDownloadType(downloadType string) DownloadType {
 		return UnknownDownloadType
 	}
 }
+
+func ValidDownloadType(dt DownloadType) bool {
+	switch dt {
+	case ProductImage:
+		fallthrough
+	case BoxArt:
+		fallthrough
+	case Background:
+		fallthrough
+	case Logo:
+		fallthrough
+	case Screenshots:
+		return true
+	default:
+		return false
+	}
+}
