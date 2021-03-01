@@ -1,7 +1,7 @@
 package vangogh_types
 
 const (
-	Title     = "title"
-	Developer = "developer"
-	Publisher = "publisher"
+	TitleProperty     = "title"
+	DeveloperProperty = "developer"
+	PublisherProperty = "publisher"
 )

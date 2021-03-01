@@ -6,11 +6,11 @@ func SupportsProperty(pt ProductType, property string) bool {
 	}
 
 	switch property {
-	case Title:
+	case TitleProperty:
 		return true
-	case Developer:
+	case DeveloperProperty:
 		fallthrough
-	case Publisher:
+	case PublisherProperty:
 		return pt == StoreProducts ||
 			pt == WishlistProducts ||
 			pt == ApiProductsV2
