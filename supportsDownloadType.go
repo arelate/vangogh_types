@@ -5,13 +5,17 @@ func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
 		return false
 	}
 
-	switch dt {
-	case ProductImage:
-		return pt == StoreProducts ||
-			pt == AccountProducts ||
-			pt == WishlistProducts ||
-			pt == ApiProductsV1 ||
-			pt == ApiProductsV2
+	switch pt {
+	case StoreProducts:
+		fallthrough
+	case AccountProducts:
+		fallthrough
+	case WishlistProducts:
+		fallthrough
+	case ApiProductsV1:
+		fallthrough
+	case ApiProductsV2:
+		return dt == ProductImage
 	default:
 		return false
 	}
