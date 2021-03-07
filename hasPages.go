@@ -2,11 +2,11 @@ package vangogh_types
 
 func HasPages(pt ProductType) bool {
 	switch pt {
-	case Store:
+	case StorePage:
 		fallthrough
-	case Account:
+	case AccountPage:
 		fallthrough
-	case Wishlist:
+	case WishlistPage:
 		return true
 	default:
 		return false

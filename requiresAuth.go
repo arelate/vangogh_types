@@ -2,9 +2,9 @@ package vangogh_types
 
 func RequiresAuth(pt ProductType) bool {
 	switch pt {
-	case Account:
+	case AccountPage:
 		fallthrough
-	case Wishlist:
+	case WishlistPage:
 		fallthrough
 	case Details:
 		return true

@@ -2,11 +2,11 @@ package vangogh_types
 
 func DetailProductType(pt ProductType) ProductType {
 	switch pt {
-	case Store:
+	case StorePage:
 		return StoreProducts
-	case Account:
+	case AccountPage:
 		return AccountProducts
-	case Wishlist:
+	case WishlistPage:
 		return WishlistProducts
 	default:
 		return UnknownProductType

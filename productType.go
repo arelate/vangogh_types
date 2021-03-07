@@ -4,11 +4,11 @@ type ProductType int
 
 const (
 	UnknownProductType ProductType = iota
-	Store
+	StorePage
 	StoreProducts
-	Account
+	AccountPage
 	AccountProducts
-	Wishlist
+	WishlistPage
 	WishlistProducts
 	Details
 	ApiProductsV1
@@ -17,11 +17,11 @@ const (
 
 const (
 	unknownProductTypeStr = "unknown-product-type"
-	storeStr              = "store"
+	storePageStr          = "store-page"
 	storeProductsStr      = "store-products"
-	accountStr            = "account"
+	accountPageStr        = "account-page"
 	accountProductsStr    = "account-products"
-	wishlistStr           = "wishlist"
+	wishlistPageStr       = "wishlist-page"
 	wishlistProductsStr   = "wishlist-products"
 	detailsStr            = "details"
 	apiProductsV1Str      = "api-products-v1"
@@ -30,16 +30,16 @@ const (
 
 func (pt ProductType) String() string {
 	switch pt {
-	case Store:
-		return storeStr
+	case StorePage:
+		return storePageStr
 	case StoreProducts:
 		return storeProductsStr
-	case Account:
-		return accountStr
+	case AccountPage:
+		return accountPageStr
 	case AccountProducts:
 		return accountProductsStr
-	case Wishlist:
-		return wishlistStr
+	case WishlistPage:
+		return wishlistPageStr
 	case WishlistProducts:
 		return wishlistProductsStr
 	case Details:
@@ -55,16 +55,16 @@ func (pt ProductType) String() string {
 
 func ParseProductType(productType string) ProductType {
 	switch productType {
-	case storeStr:
-		return Store
+	case storePageStr:
+		return StorePage
 	case storeProductsStr:
 		return StoreProducts
-	case accountStr:
-		return Account
+	case accountPageStr:
+		return AccountPage
 	case accountProductsStr:
 		return AccountProducts
-	case wishlistStr:
-		return Wishlist
+	case wishlistPageStr:
+		return WishlistPage
 	case wishlistProductsStr:
 		return WishlistProducts
 	case detailsStr:
@@ -80,15 +80,15 @@ func ParseProductType(productType string) ProductType {
 
 func ValidProductType(pt ProductType) bool {
 	switch pt {
-	case Store:
+	case StorePage:
 		fallthrough
 	case StoreProducts:
 		fallthrough
-	case Account:
+	case AccountPage:
 		fallthrough
 	case AccountProducts:
 		fallthrough
-	case Wishlist:
+	case WishlistPage:
 		fallthrough
 	case WishlistProducts:
 		fallthrough
