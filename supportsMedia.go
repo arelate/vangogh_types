@@ -10,9 +10,10 @@ func SupportsMedia(pt ProductType, mt gog_types.Media) bool {
 		return false
 	}
 
-	if pt == ApiProductsV2 {
+	switch pt {
+	case ApiProductsV2:
 		return mt == gog_types.Game
+	default:
+		return true
 	}
-
-	return true
 }

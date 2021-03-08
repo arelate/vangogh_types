@@ -6,20 +6,22 @@ const (
 	UnknownDownloadType DownloadType = iota
 	Image
 	BoxArt
-	Background
+	BackgroundImage
+	GalaxyBackgroundImage
 	Logo
 	Icon
 	Screenshots
 )
 
 const (
-	unknownDownloadTypeStr = "unknown-download-type"
-	imageStr               = "image"
-	boxArtStr              = "box-art"
-	backgroundStr          = "background"
-	logoStr                = "logo"
-	iconStr                = "icon"
-	screenshotsStr         = "screenshots"
+	unknownDownloadTypeStr   = "unknown-download-type"
+	imageStr                 = "image"
+	boxArtStr                = "box-art"
+	backgroundImageStr       = "background-image"
+	galaxyBackgroundImageStr = "galaxy-background-image"
+	logoStr                  = "logo"
+	iconStr                  = "icon"
+	screenshotsStr           = "screenshots"
 )
 
 func (dt DownloadType) String() string {
@@ -28,8 +30,10 @@ func (dt DownloadType) String() string {
 		return imageStr
 	case BoxArt:
 		return boxArtStr
-	case Background:
-		return backgroundStr
+	case BackgroundImage:
+		return backgroundImageStr
+	case GalaxyBackgroundImage:
+		return galaxyBackgroundImageStr
 	case Logo:
 		return logoStr
 	case Icon:
@@ -47,8 +51,10 @@ func ParseDownloadType(downloadType string) DownloadType {
 		return Image
 	case boxArtStr:
 		return BoxArt
-	case backgroundStr:
-		return Background
+	case backgroundImageStr:
+		return BackgroundImage
+	case galaxyBackgroundImageStr:
+		return GalaxyBackgroundImage
 	case logoStr:
 		return Logo
 	case iconStr:
@@ -66,7 +72,9 @@ func ValidDownloadType(dt DownloadType) bool {
 		fallthrough
 	case BoxArt:
 		fallthrough
-	case Background:
+	case BackgroundImage:
+		fallthrough
+	case GalaxyBackgroundImage:
 		fallthrough
 	case Logo:
 		fallthrough
