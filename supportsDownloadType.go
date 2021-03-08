@@ -39,3 +39,23 @@ func supportsBoxArt(pt ProductType) bool {
 		return false
 	}
 }
+
+func supportsLogo(pt ProductType) bool {
+	switch pt {
+	case ApiProductsV2:
+		return true
+	default:
+		return false
+	}
+}
+
+func supportsIcon(pt ProductType) bool {
+	switch pt {
+	case ApiProductsV1:
+		fallthrough
+	case ApiProductsV2:
+		return true
+	default:
+		return false
+	}
+}

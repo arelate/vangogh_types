@@ -8,6 +8,7 @@ const (
 	BoxArt
 	Background
 	Logo
+	Icon
 	Screenshots
 )
 
@@ -17,6 +18,7 @@ const (
 	boxArtStr              = "box-art"
 	backgroundStr          = "background"
 	logoStr                = "logo"
+	iconStr                = "icon"
 	screenshotsStr         = "screenshots"
 )
 
@@ -30,6 +32,8 @@ func (dt DownloadType) String() string {
 		return backgroundStr
 	case Logo:
 		return logoStr
+	case Icon:
+		return iconStr
 	case Screenshots:
 		return screenshotsStr
 	default:
@@ -47,6 +51,8 @@ func ParseDownloadType(downloadType string) DownloadType {
 		return Background
 	case logoStr:
 		return Logo
+	case iconStr:
+		return Icon
 	case screenshotsStr:
 		return Screenshots
 	default:
@@ -63,6 +69,8 @@ func ValidDownloadType(dt DownloadType) bool {
 	case Background:
 		fallthrough
 	case Logo:
+		fallthrough
+	case Icon:
 		fallthrough
 	case Screenshots:
 		return true
