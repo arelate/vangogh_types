@@ -1,10 +1,20 @@
 package vangogh_types
 
 func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
-	if dt == UnknownDownloadType || pt == UnknownProductType {
+	if !ValidProductType(pt) ||
+		!ValidDownloadType(dt) {
 		return false
 	}
 
+	switch dt {
+	case Image:
+		return supportsImage(pt)
+	default:
+		return false
+	}
+}
+
+func supportsImage(pt ProductType) bool {
 	switch pt {
 	case StoreProducts:
 		fallthrough
@@ -12,10 +22,8 @@ func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
 		fallthrough
 	case WishlistProducts:
 		fallthrough
-	case ApiProductsV1:
-		fallthrough
 	case ApiProductsV2:
-		return dt == ProductImage
+		return true
 	default:
 		return false
 	}

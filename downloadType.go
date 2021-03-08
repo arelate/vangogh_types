@@ -4,7 +4,7 @@ type DownloadType int
 
 const (
 	UnknownDownloadType DownloadType = iota
-	ProductImage
+	Image
 	BoxArt
 	Background
 	Logo
@@ -22,7 +22,7 @@ const (
 
 func (dt DownloadType) String() string {
 	switch dt {
-	case ProductImage:
+	case Image:
 		return productImageStr
 	case BoxArt:
 		return boxArtStr
@@ -40,7 +40,7 @@ func (dt DownloadType) String() string {
 func ParseDownloadType(downloadType string) DownloadType {
 	switch downloadType {
 	case productImageStr:
-		return ProductImage
+		return Image
 	case boxArtStr:
 		return BoxArt
 	case backgroundStr:
@@ -56,7 +56,7 @@ func ParseDownloadType(downloadType string) DownloadType {
 
 func ValidDownloadType(dt DownloadType) bool {
 	switch dt {
-	case ProductImage:
+	case Image:
 		fallthrough
 	case BoxArt:
 		fallthrough
