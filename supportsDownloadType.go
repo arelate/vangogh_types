@@ -9,6 +9,8 @@ func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
 	switch dt {
 	case Image:
 		return supportsImage(pt)
+	case BoxArt:
+		return supportsBoxArt(pt)
 	default:
 		return false
 	}
@@ -22,6 +24,15 @@ func supportsImage(pt ProductType) bool {
 		fallthrough
 	case WishlistProducts:
 		fallthrough
+	case ApiProductsV2:
+		return true
+	default:
+		return false
+	}
+}
+
+func supportsBoxArt(pt ProductType) bool {
+	switch pt {
 	case ApiProductsV2:
 		return true
 	default:
