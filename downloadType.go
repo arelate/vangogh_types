@@ -13,7 +13,7 @@ const (
 
 const (
 	unknownDownloadTypeStr = "unknown-download-type"
-	productImageStr        = "product-image"
+	imageStr               = "image"
 	boxArtStr              = "box-art"
 	backgroundStr          = "background"
 	logoStr                = "logo"
@@ -23,7 +23,7 @@ const (
 func (dt DownloadType) String() string {
 	switch dt {
 	case Image:
-		return productImageStr
+		return imageStr
 	case BoxArt:
 		return boxArtStr
 	case Background:
@@ -39,7 +39,7 @@ func (dt DownloadType) String() string {
 
 func ParseDownloadType(downloadType string) DownloadType {
 	switch downloadType {
-	case productImageStr:
+	case imageStr:
 		return Image
 	case boxArtStr:
 		return BoxArt
