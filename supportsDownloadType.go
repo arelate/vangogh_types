@@ -11,6 +11,10 @@ func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
 		return supportsImage(pt)
 	case BoxArt:
 		return supportsBoxArt(pt)
+	case Logo:
+		return supportsLogo(pt)
+	case Icon:
+		return supportsIcon(pt)
 	default:
 		return false
 	}
