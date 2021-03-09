@@ -18,7 +18,7 @@ func SupportsMedia(pt ProductType, mt gog_types.Media) bool {
 
 	ums, ok := unsupporedMedia[pt]
 	if !ok {
-		return false
+		return true
 	}
 
 	for _, um := range ums {

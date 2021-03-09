@@ -9,6 +9,19 @@ var supportedDownloadTypes = map[ProductType][]DownloadType{
 	ApiProductsV2:    {Image, BoxArt, Logo, Icon, BackgroundImage, GalaxyBackgroundImage},
 }
 
+func SupportingProductTypes(downloadType DownloadType) []ProductType {
+	pts := make([]ProductType, 0)
+	for pt, dts := range supportedDownloadTypes {
+		for _, dt := range dts {
+			if dt == downloadType {
+				pts = append(pts, pt)
+				break
+			}
+		}
+	}
+	return pts
+}
+
 func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
 	if !ValidProductType(pt) ||
 		!ValidDownloadType(dt) {
