@@ -42,5 +42,5 @@ func ParseDownloadType(downloadType string) DownloadType {
 
 func ValidDownloadType(dt DownloadType) bool {
 	_, ok := downloadTypeStrings[dt]
-	return ok
+	return ok && dt != UnknownDownloadType
 }

@@ -48,5 +48,5 @@ func ParseProductType(productType string) ProductType {
 
 func ValidProductType(pt ProductType) bool {
 	_, ok := productTypeStrings[pt]
-	return ok
+	return ok && pt != UnknownProductType
 }
