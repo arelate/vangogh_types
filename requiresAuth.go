@@ -1,14 +1,16 @@
 package vangogh_types
 
+var requiresAuth = []ProductType{
+	AccountPage,
+	WishlistPage,
+	Details,
+}
+
 func RequiresAuth(pt ProductType) bool {
-	switch pt {
-	case AccountPage:
-		fallthrough
-	case WishlistPage:
-		fallthrough
-	case Details:
-		return true
-	default:
-		return false
+	for _, ra := range requiresAuth {
+		if ra == pt {
+			return true
+		}
 	}
+	return false
 }
