@@ -1,14 +1,11 @@
 package vangogh_types
 
+var detailMainProductTypes = map[ProductType][]ProductType{
+	Details:       {AccountProducts},
+	ApiProductsV1: {StoreProducts, AccountProducts},
+	ApiProductsV2: {StoreProducts, AccountProducts},
+}
+
 func MainProductTypes(pt ProductType) []ProductType {
-	switch pt {
-	case Details:
-		return []ProductType{AccountProducts}
-	case ApiProductsV1:
-		return []ProductType{StoreProducts, AccountProducts}
-	case ApiProductsV2:
-		return []ProductType{StoreProducts, AccountProducts}
-	default:
-		return []ProductType{}
-	}
+	return detailMainProductTypes[pt]
 }

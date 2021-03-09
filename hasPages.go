@@ -1,14 +1,16 @@
 package vangogh_types
 
+var paginatedProductTypes = []ProductType{
+	StorePage,
+	AccountPage,
+	WishlistPage,
+}
+
 func HasPages(pt ProductType) bool {
-	switch pt {
-	case StorePage:
-		fallthrough
-	case AccountPage:
-		fallthrough
-	case WishlistPage:
-		return true
-	default:
-		return false
+	for _, ppt := range paginatedProductTypes {
+		if ppt == pt {
+			return true
+		}
 	}
+	return false
 }

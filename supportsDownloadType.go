@@ -1,91 +1,30 @@
 package vangogh_types
 
+var supportedDownloadTypes = map[ProductType][]DownloadType{
+	StoreProducts:    {Image},
+	AccountProducts:  {Image},
+	WishlistProducts: {Image},
+	Details:          {BackgroundImage},
+	ApiProductsV1:    {Icon, BackgroundImage},
+	ApiProductsV2:    {Image, BoxArt, Logo, Icon, BackgroundImage, GalaxyBackgroundImage},
+}
+
 func SupportsDownloadType(pt ProductType, dt DownloadType) bool {
 	if !ValidProductType(pt) ||
 		!ValidDownloadType(dt) {
 		return false
 	}
 
-	switch dt {
-	case Image:
-		return supportsImage(pt)
-	case BoxArt:
-		return supportsBoxArt(pt)
-	case BackgroundImage:
-		return supportsBackgroundImage(pt)
-	case GalaxyBackgroundImage:
-		return supportsGalaxyBackgroundImage(pt)
-	case Logo:
-		return supportsLogo(pt)
-	case Icon:
-		return supportsIcon(pt)
-	default:
+	sdts, ok := supportedDownloadTypes[pt]
+	if !ok {
 		return false
 	}
-}
 
-func supportsImage(pt ProductType) bool {
-	switch pt {
-	case StoreProducts:
-		fallthrough
-	case AccountProducts:
-		fallthrough
-	case WishlistProducts:
-		fallthrough
-	case ApiProductsV2:
-		return true
-	default:
-		return false
+	for _, sdt := range sdts {
+		if sdt == dt {
+			return true
+		}
 	}
-}
 
-func supportsBoxArt(pt ProductType) bool {
-	switch pt {
-	case ApiProductsV2:
-		return true
-	default:
-		return false
-	}
-}
-
-func supportsLogo(pt ProductType) bool {
-	switch pt {
-	case ApiProductsV2:
-		return true
-	default:
-		return false
-	}
-}
-
-func supportsIcon(pt ProductType) bool {
-	switch pt {
-	case ApiProductsV1:
-		fallthrough
-	case ApiProductsV2:
-		return true
-	default:
-		return false
-	}
-}
-
-func supportsBackgroundImage(pt ProductType) bool {
-	switch pt {
-	case Details:
-		fallthrough
-	case ApiProductsV1:
-		fallthrough
-	case ApiProductsV2:
-		return true
-	default:
-		return false
-	}
-}
-
-func supportsGalaxyBackgroundImage(pt ProductType) bool {
-	switch pt {
-	case ApiProductsV2:
-		return true
-	default:
-		return false
-	}
+	return false
 }
