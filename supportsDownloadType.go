@@ -1,12 +1,12 @@
 package vangogh_types
 
 var supportedDownloadTypes = map[ProductType][]DownloadType{
-	StoreProducts:    {Image},
+	StoreProducts:    {Image, Screenshots},
 	AccountProducts:  {Image},
 	WishlistProducts: {Image},
 	Details:          {BackgroundImage},
-	ApiProductsV1:    {Icon, BackgroundImage},
-	ApiProductsV2:    {Image, BoxArt, Logo, Icon, BackgroundImage, GalaxyBackgroundImage},
+	ApiProductsV1:    {Icon, BackgroundImage, Screenshots},
+	ApiProductsV2:    {Image, BoxArt, Logo, Icon, BackgroundImage, GalaxyBackgroundImage, Screenshots},
 }
 
 func SupportingProductTypes(downloadType DownloadType) []ProductType {

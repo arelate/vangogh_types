@@ -6,20 +6,22 @@ const (
 	UnknownDownloadType DownloadType = iota
 	Image
 	BoxArt
-	BackgroundImage
-	GalaxyBackgroundImage
 	Logo
 	Icon
+	BackgroundImage
+	GalaxyBackgroundImage
+	Screenshots
 )
 
 var downloadTypeStrings = map[DownloadType]string{
 	UnknownDownloadType:   "unknown-download-type",
 	Image:                 "image",
 	BoxArt:                "box-art",
-	BackgroundImage:       "background-image",
-	GalaxyBackgroundImage: "galaxy-background-image",
 	Logo:                  "logo",
 	Icon:                  "icon",
+	BackgroundImage:       "background-image",
+	GalaxyBackgroundImage: "galaxy-background-image",
+	Screenshots:           "screenshots",
 }
 
 func (dt DownloadType) String() string {
